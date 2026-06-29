@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VN Law Firm - Excellence in Legal Advocacy | 25+ Years of Legal Excellence" />
+    <title>VN Law Firm — Excellence in Legal Advocacy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        bricolage: ['Bricolage Grotesque', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ── reset & base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+            --accent-primary: #34d399;
+            --accent-secondary: #2dd4bf;
+            --bg-primary: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --border-light: rgba(255, 255, 255, 0.06);
+            --border-lighter: rgba(255, 255, 255, 0.03);
+        }
+
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+            background-clip: padding-box;
+            border: 2px solid transparent;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* ── KEYFRAMES ── */
+        @keyframes fadeSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeSlideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(36px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes scaleIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes pulse-glow {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(52, 211, 153, 0.12);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(52, 211, 153, 0.24);
+            }
+        }
+        @keyframes shimmer-load {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        @keyframes rotate-slow {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── MAKE EVERYTHING VISIBLE IMMEDIATELY ── */
+        .animate-on-scroll {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            transition: none !important;
+        }
+
+        /* ── hero bg ── */
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0d1117 100%);
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 800px 600px at 30% 20%, rgba(52, 211, 153, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse 900px 700px at 70% 80%, rgba(34, 211, 238, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse 600px 600px at 50% 50%, rgba(255, 255, 255, 0.01) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 240px;
+            background: linear-gradient(to top, #0a0a0a, transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* glass */
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-light);
+        }
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* service card */
+        .service-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(180deg, rgba(52, 211, 153, 0.08) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .service-card:hover {
+            border-color: rgba(52, 211, 153, 0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(52, 211, 153, 0.04);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card-inner {
+            padding: 32px;
+            border-radius: 18px;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .service-card .icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(52, 211, 153, 0.06);
+            border: 1px solid rgba(52, 211, 153, 0.1);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            font-size: 22px;
+            color: var(--accent-primary);
+        }
+        .service-card:hover .icon-wrap {
+            background: rgba(52, 211, 153, 0.12);
+            border-color: rgba(52, 211, 153, 0.25);
+            box-shadow: 0 0 16px rgba(52, 211, 153, 0.15);
+            transform: scale(1.06) translateY(-2px);
+        }
+        .service-card .arrow-icon {
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .service-card:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(2px);
+        }
+
+        /* stats */
+        .stat-card {
+            position: relative;
+            text-align: center;
+            padding: 28px 20px;
+        }
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15%;
+            height: 70%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(52, 211, 153, 0.08), transparent);
+        }
+        .stat-card:last-child::after {
+            display: none;
+        }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+        }
+
+        /* team card */
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .team-card:hover {
+            border-color: rgba(52, 211, 153, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        .team-card img {
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .team-card:hover img {
+            transform: scale(1.08);
+        }
+        .team-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.98), rgba(10, 10, 10, 0.6), transparent);
+            padding: 56px 24px 24px;
+        }
+
+        /* testimonial */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+        }
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(52, 211, 153, 0.1);
+            transform: translateY(-4px);
+        }
+        .testimonial-card .quote-mark {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 56px;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            color: rgba(52, 211, 153, 0.06);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* nav */
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .nav-glass.scrolled {
+            background: rgba(10, 10, 10, 0.75);
+            border-color: rgba(52, 211, 153, 0.08);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+        }
+        .nav-link {
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            font-size: 14px;
+            font-weight: 400;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* buttons */
+        .btn-primary {
+            background: #fff;
+            color: #171717;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 28px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.18);
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 12px 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .btn-accent {
+            background: linear-gradient(135deg, #34d399, #2dd4bf);
+            color: #0a0a0a;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(52, 211, 153, 0.24);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .btn-accent::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(52, 211, 153, 0.32);
+        }
+        .btn-accent:hover::before {
+            opacity: 1;
+        }
+
+        /* decorative */
+        .deco-ring {
+            position: absolute;
+            border: 1px solid rgba(52, 211, 153, 0.06);
+            border-radius: 50%;
+            animation: rotate-slow 45s linear infinite;
+            pointer-events: none;
+        }
+        .deco-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(52, 211, 153, 0.3);
+        }
+
+        /* section label */
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 100px;
+            background: rgba(52, 211, 153, 0.05);
+            border: 1px solid rgba(52, 211, 153, 0.1);
+            color: var(--accent-primary);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-light), transparent);
+        }
+
+        /* mobile menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(24px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-menu a {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .mobile-menu a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* toast */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 200;
+            background: rgba(52, 211, 153, 0.12);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            backdrop-filter: blur(16px);
+            border-radius: 12px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--accent-primary);
+            font-size: 14px;
+            font-weight: 500;
+            transform: translateY(120px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 8px 24px rgba(52, 211, 153, 0.16);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* faq */
+        .faq-item {
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.005);
+        }
+        .faq-item:hover,
+        .faq-item.active {
+            border-color: rgba(52, 211, 153, 0.12);
+            background: rgba(52, 211, 153, 0.02);
+        }
+        .faq-header {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: background 0.3s ease;
+        }
+        .faq-header:hover {
+            background: rgba(52, 211, 153, 0.02);
+        }
+        .faq-header i {
+            color: var(--accent-primary);
+            transition: transform 0.3s ease;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+        }
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            padding: 0 24px;
+        }
+        .faq-item.active .faq-body {
+            max-height: 320px;
+            padding: 0 24px 20px;
+        }
+
+        /* process step */
+        .process-step {
+            position: relative;
+            padding-left: 48px;
+        }
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 13px;
+            top: 40px;
+            bottom: -32px;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(52, 211, 153, 0.3), transparent);
+            transform-origin: top;
+        }
+        .process-step:last-child::before {
+            display: none;
+        }
+        .process-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(52, 211, 153, 0.08);
+            border: 2px solid rgba(52, 211, 153, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .process-dot::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        /* form inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: rgba(52, 211, 153, 0.3) !important;
+            background: rgba(255, 255, 255, 0.06) !important;
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.08) !important;
+        }
+
+        @media (max-width: 768px) {
+            .stat-card::after {
+                display: none;
+            }
+            .service-card-inner {
+                padding: 24px;
+            }
+            .toast {
+                bottom: 24px;
+                right: 24px;
+                left: 24px;
+                justify-content: center;
+            }
+            .hero-bg {
+                min-height: 85vh;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        button:focus-visible,
+        a:focus-visible,
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 2px;
+        }
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAV ===== -->
+    <nav class="fixed top-0 left-0 right-0 z-50 mt-4 px-4 md:px-6" id="navbar">
+        <div class="nav-glass max-w-7xl mx-auto rounded-xl px-4 md:px-6 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-400 flex items-center justify-center">
+                    <span class="font-bricolage font-bold text-sm text-neutral-900">VN</span>
+                </div>
+                <div>
+                    <span class="font-bricolage font-semibold text-white text-base tracking-tight">VN Law</span>
+                    <span class="hidden sm:inline text-white/40 text-xs ml-2 font-light">Firm</span>
+                </div>
+            </a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="hidden lg:flex items-center gap-3">
+                <a href="tel:+1-555-123-4567" class="btn-secondary text-sm !py-2.5 !px-5">
+                    <i class="fas fa-phone text-xs"></i> Call Us
+                </a>
+                <a href="#contact" class="btn-primary text-sm !py-2.5 !px-5">
+                    Free Consultation
+                </a>
+            </div>
+            <button id="mobileToggle" class="lg:hidden w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all" aria-label="Toggle menu">
+                <i class="fas fa-bars text-sm"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="mobileClose" class="absolute top-6 right-6 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all" aria-label="Close menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#process" class="mobile-nav-link">Process</a>
+        <a href="#team" class="mobile-nav-link">Team</a>
+        <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+        <a href="#contact" class="btn-accent mt-4">Free Consultation</a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-bg relative min-h-[92vh] flex items-center pt-24 pb-20" aria-label="Hero">
+        <div class="deco-ring w-[500px] h-[500px] -top-40 -right-40 opacity-25" style="animation-duration:50s;"></div>
+        <div class="deco-ring w-[300px] h-[300px] bottom-20 -left-20 opacity-15" style="animation-direction:reverse; animation-duration:35s;"></div>
+        <div class="absolute top-1/4 right-1/4 deco-dot" style="animation: float 4s ease-in-out infinite;"></div>
+        <div class="absolute bottom-1/3 left-1/3 deco-dot" style="animation: float 5s ease-in-out infinite 1s;"></div>
+        <div class="absolute top-1/2 right-1/3 deco-dot" style="animation: float 6s ease-in-out infinite 2s; width:3px; height:3px;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-12 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7">
+                    <div style="animation: fadeSlideIn 0.8s ease-out 0.1s both;">
+                        <div class="section-label mb-8">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                            Award-Winning Legal Excellence
+                        </div>
+                    </div>
+                    <h1 class="font-bricolage font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-8" style="animation: fadeSlideIn 0.8s ease-out 0.2s both;">
+                        Your Legal Rights,<br>
+                        <span class="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">Fiercely Defended</span>
+                    </h1>
+                    <p class="text-white/60 text-lg md:text-xl leading-relaxed max-w-xl mb-10" style="animation: fadeSlideIn 0.8s ease-out 0.3s both;">
+                        VN Law Firm delivers uncompromising legal representation across 12+ practice areas. Trusted by Fortune 500 companies and individuals alike.
+                    </p>
+                    <div class="flex flex-wrap gap-4" style="animation: fadeSlideIn 0.8s ease-out 0.4s both;">
+                        <a href="#contact" class="btn-accent">
+                            Schedule Consultation
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#services" class="btn-secondary">
+                            <i class="fas fa-scale-balanced text-sm text-emerald-400"></i>
+                            Explore Services
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 mt-12" style="animation: fadeSlideIn 0.8s ease-out 0.5s both;">
+                        <div class="flex -space-x-3">
+                            <img src="https://picsum.photos/seed/client1/40/40.jpg?q=80&w=40" class="w-10 h-10 rounded-full border-2 border-neutral-900 object-cover" alt="Client" loading="lazy">
+                            <img src="https://picsum.photos/seed/client2/40/40.jpg?q=80&w=40" class="w-10 h-10 rounded-full border-2 border-neutral-900 object-cover" alt="Client" loading="lazy">
+                            <img src="https://picsum.photos/seed/client3/40/40.jpg?q=80&w=40" class="w-10 h-10 rounded-full border-2 border-neutral-900 object-cover" alt="Client" loading="lazy">
+                            <img src="https://picsum.photos/seed/client4/40/40.jpg?q=80&w=40" class="w-10 h-10 rounded-full border-2 border-neutral-900 object-cover" alt="Client" loading="lazy">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1 mb-0.5">
+                                <i class="fas fa-star text-amber-400 text-xs"></i>
+                                <i class="fas fa-star text-amber-400 text-xs"></i>
+                                <i class="fas fa-star text-amber-400 text-xs"></i>
+                                <i class="fas fa-star text-amber-400 text-xs"></i>
+                                <i class="fas fa-star text-amber-400 text-xs"></i>
+                            </div>
+                            <span class="text-white/50 text-xs">Trusted by 2,500+ clients</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 hidden lg:block" style="animation: fadeSlideInRight 0.8s ease-out 0.4s both;">
+                    <div class="relative">
+                        <div class="glass-strong rounded-3xl p-6" style="animation: pulse-glow 4s ease-in-out infinite;">
+                            <img src="https://picsum.photos/seed/lawoffice/500/600.jpg?q=80" class="w-full h-[420px] object-cover rounded-2xl" alt="VN Law Office" loading="lazy">
+                            <div class="absolute bottom-10 left-10 right-10 glass rounded-2xl p-4 backdrop-blur-xl">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-lg bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center">
+                                        <i class="fas fa-trophy text-emerald-400"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-white font-semibold text-sm">98.7% Success Rate</div>
+                                        <div class="text-white/40 text-xs">Across all practice areas</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="relative z-10 -mt-4">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div class="glass rounded-2xl" style="animation: scaleIn 0.6s ease-out 0.8s both;">
+                <div class="grid grid-cols-2 md:grid-cols-4">
+                    <div class="stat-card">
+                        <div class="stat-value text-white">25</div>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value text-emerald-400">2,500+</div>
+                        <div class="stat-label">Cases Won</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value text-white">45</div>
+                        <div class="stat-label">Expert Attorneys</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value text-white">$2B+</div>
+                        <div class="stat-label">Recovered for Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="section-label mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                        About VN Law
+                    </div>
+                    <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                        A Legacy of <span class="text-emerald-400">Legal Brilliance</span>
+                    </h2>
+                    <p class="text-white/60 text-base md:text-lg leading-relaxed mb-6">
+                        Founded over two decades ago, VN Law Firm has grown from a boutique practice into one of the most respected full-service law firms in the nation. Our unwavering commitment to justice, combined with innovative legal strategies, has earned us recognition from top legal directories worldwide.
+                    </p>
+                    <p class="text-white/50 text-base leading-relaxed mb-8">
+                        We believe that every client deserves world-class representation, regardless of the complexity of their case. Our team of 45+ attorneys brings deep expertise across all major practice areas, ensuring comprehensive legal solutions under one roof.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-check text-emerald-400 text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">Chambers Ranked</div>
+                                <div class="text-white/40 text-xs">Tier 1 Firm</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-check text-emerald-400 text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">Super Lawyers</div>
+                                <div class="text-white/40 text-xs">30+ Attorneys Listed</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-check text-emerald-400 text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">AV Preeminent</div>
+                                <div class="text-white/40 text-xs">Highest Ethical Standards</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fas fa-check text-emerald-400 text-xs"></i>
+                            </div>
+                            <div>
+                                <div class="text-white text-sm font-medium">Best Lawyers®</div>
+                                <div class="text-white/40 text-xs">2024 Edition</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="relative">
+                        <img src="https://picsum.photos/seed/lawbuilding/600/700.jpg?q=80" class="w-full h-[500px] object-cover rounded-2xl" alt="VN Law Office" loading="lazy">
+                        <div class="absolute -bottom-6 -left-6 glass-strong rounded-2xl p-5 max-w-[220px] backdrop-blur-xl">
+                            <div class="text-emerald-400 font-bricolage font-bold text-3xl mb-1">25+</div>
+                            <div class="text-white/50 text-sm">Years fighting for our clients' rights</div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 glass-strong rounded-2xl p-4 backdrop-blur-xl">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                                <span class="text-white/70 text-xs font-medium">Available 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="py-24 md:py-32 relative">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-400/3 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="section-label mb-6 mx-auto">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                    Our Practice Areas
+                </div>
+                <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                    Comprehensive Legal <span class="text-emerald-400">Services</span>
+                </h2>
+                <p class="text-white/50 text-base md:text-lg leading-relaxed">
+                    From corporate transactions to criminal defense, our attorneys deliver strategic, results-driven representation across every major area of law.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- 1 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-building"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Corporate & Business Law</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Entity formation, corporate governance, shareholder agreements, joint ventures, and strategic business counsel for startups to Fortune 500 companies.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">M&A</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Compliance</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Governance</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-gavel"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Litigation & Dispute Resolution</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Aggressive courtroom advocacy and strategic dispute resolution including mediation, arbitration, and complex civil litigation across all forums.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Trial</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Arbitration</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Mediation</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-home"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Real Estate & Property Law</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Commercial and residential transactions, property development, landlord-tenant disputes, zoning, land use, and construction law matters.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Transactions</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Zoning</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Construction</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-lightbulb"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Intellectual Property</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Patent prosecution, trademark registration, copyright protection, trade secret strategy, IP licensing, and infringement litigation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Patents</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Trademarks</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Copyrights</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-heart"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Family Law</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Divorce, child custody, spousal support, adoption, prenuptial agreements, and domestic violence protection with compassion and discretion.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Divorce</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Custody</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Adoption</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-shield-halved"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Criminal Defense</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Federal and state criminal defense, white-collar crimes, DUI, drug offenses, assault, and appellate advocacy protecting your freedom.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Federal</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">White-Collar</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Appellate</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-plane"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Immigration Law</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Visa applications, green cards, citizenship, deportation defense, asylum, and corporate immigration for global talent mobility.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Visas</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Green Cards</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Asylum</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Tax & Regulatory Compliance</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Tax planning, IRS disputes, regulatory compliance, audits, international tax strategy, and state/local tax matters for individuals and businesses.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Tax Planning</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">IRS Defense</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Compliance</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 9 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-briefcase"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Employment & Labor Law</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Wrongful termination, discrimination, wage disputes, workplace harassment, executive compensation, and employment contract negotiation.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Discrimination</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Wage Claims</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Contracts</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 10 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-handshake"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Mergers & Acquisitions</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Due diligence, deal structuring, negotiation, regulatory approvals, post-merger integration, and cross-border M&A transactions.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Due Diligence</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Deal Structure</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Cross-Border</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 11 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-landmark"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Banking & Finance</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Loan documentation, project finance, securities regulation, fintech compliance, banking litigation, and capital markets transactions.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Securities</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Fintech</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Capital Markets</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 12 -->
+                <div class="service-card">
+                    <div class="service-card-inner">
+                        <div class="flex items-start justify-between mb-5">
+                            <div class="icon-wrap"><i class="fas fa-lock"></i></div>
+                            <span class="arrow-icon text-emerald-400 text-sm"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                        <h3 class="font-bricolage font-semibold text-lg text-white mb-3 tracking-tight">Cyber & Data Privacy Law</h3>
+                        <p class="text-white/50 text-sm leading-relaxed mb-4">Data breach response, GDPR/CCPA compliance, cybersecurity strategy, privacy policies, and technology transaction agreements.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">GDPR</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">CCPA</span>
+                            <span class="text-[11px] text-white/30 bg-white/5 rounded-full px-3 py-1">Data Breach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ===== PROCESS ===== -->
+    <section id="process" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div class="lg:sticky lg:top-32">
+                    <div class="section-label mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                        Our Process
+                    </div>
+                    <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                        How We <span class="text-emerald-400">Deliver Results</span>
+                    </h2>
+                    <p class="text-white/50 text-base md:text-lg leading-relaxed mb-8">
+                        Our proven four-step methodology ensures every case receives the meticulous attention and strategic thinking it deserves.
+                    </p>
+                    <div>
+                        <img src="https://picsum.photos/seed/legalprocess/600/350.jpg?q=80" class="w-full h-[250px] object-cover rounded-2xl opacity-60" alt="Legal Process" loading="lazy">
+                    </div>
+                </div>
+                <div class="space-y-10">
+                    <div class="process-step">
+                        <div class="process-dot"></div>
+                        <div class="glass rounded-xl p-6">
+                            <div class="text-emerald-400 font-bricolage font-bold text-sm mb-2">Step 01</div>
+                            <h3 class="font-bricolage font-semibold text-xl text-white mb-3 tracking-tight">Initial Consultation</h3>
+                            <p class="text-white/50 text-sm leading-relaxed">We begin with a comprehensive, confidential consultation to understand your situation, assess your legal standing, and identify the best path forward—at no cost to you.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-dot"></div>
+                        <div class="glass rounded-xl p-6">
+                            <div class="text-emerald-400 font-bricolage font-bold text-sm mb-2">Step 02</div>
+                            <h3 class="font-bricolage font-semibold text-xl text-white mb-3 tracking-tight">Strategic Case Analysis</h3>
+                            <p class="text-white/50 text-sm leading-relaxed">Our legal team conducts an in-depth investigation, gathers evidence, reviews precedents, and develops a tailored strategy designed to maximize your outcome.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-dot"></div>
+                        <div class="glass rounded-xl p-6">
+                            <div class="text-emerald-400 font-bricolage font-bold text-sm mb-2">Step 03</div>
+                            <h3 class="font-bricolage font-semibold text-xl text-white mb-3 tracking-tight">Aggressive Execution</h3>
+                            <p class="text-white/50 text-sm leading-relaxed">We execute our strategy with precision—filing motions, negotiating settlements, or taking your case to trial with the full force of our resources and expertise.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-dot"></div>
+                        <div class="glass rounded-xl p-6">
+                            <div class="text-emerald-400 font-bricolage font-bold text-sm mb-2">Step 04</div>
+                            <h3 class="font-bricolage font-semibold text-xl text-white mb-3 tracking-tight">Resolution & Beyond</h3>
+                            <p class="text-white/50 text-sm leading-relaxed">We secure the best possible resolution and continue to support you with post-judgment enforcement, appeals if necessary, and ongoing legal counsel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ===== TEAM ===== -->
+    <section id="team" class="py-24 md:py-32 relative">
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-400/3 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="section-label mb-6 mx-auto">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                    Our Attorneys
+                </div>
+                <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                    Meet the <span class="text-emerald-400">Legal Minds</span>
+                </h2>
+                <p class="text-white/50 text-base md:text-lg leading-relaxed">
+                    Our attorneys bring decades of combined experience from top law schools, federal clerkships, and leading global firms.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="team-card">
+                    <img src="https://picsum.photos/seed/lawyer1/400/500.jpg?q=80" class="w-full h-[360px] object-cover" alt="Vikram Naresh" loading="lazy">
+                    <div class="overlay">
+                        <h4 class="font-bricolage font-semibold text-white text-lg">Vikram Naresh</h4>
+                        <p class="text-emerald-400 text-sm font-medium mb-2">Founding Partner</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Harvard Law. 25+ years in corporate litigation and M&A.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://picsum.photos/seed/lawyer2/400/500.jpg?q=80" class="w-full h-[360px] object-cover" alt="Sarah Chen" loading="lazy">
+                    <div class="overlay">
+                        <h4 class="font-bricolage font-semibold text-white text-lg">Sarah Chen</h4>
+                        <p class="text-emerald-400 text-sm font-medium mb-2">Senior Partner, IP</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Stanford Law. Former USPTO examiner. Patent litigation expert.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://picsum.photos/seed/lawyer3/400/500.jpg?q=80" class="w-full h-[360px] object-cover" alt="Marcus Williams" loading="lazy">
+                    <div class="overlay">
+                        <h4 class="font-bricolage font-semibold text-white text-lg">Marcus Williams</h4>
+                        <p class="text-emerald-400 text-sm font-medium mb-2">Partner, Criminal Defense</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Yale Law. Former federal prosecutor. 95% acquittal rate.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://picsum.photos/seed/lawyer4/400/500.jpg?q=80" class="w-full h-[360px] object-cover" alt="Priya Sharma" loading="lazy">
+                    <div class="overlay">
+                        <h4 class="font-bricolage font-semibold text-white text-lg">Priya Sharma</h4>
+                        <p class="text-emerald-400 text-sm font-medium mb-2">Partner, Family Law</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Columbia Law. Certified family law specialist. 2,000+ cases.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-secondary">
+                    View All 45+ Attorneys
+                    <i class="fas fa-arrow-right text-sm text-emerald-400"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="section-label mb-6 mx-auto">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                    Client Testimonials
+                </div>
+                <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                    What Our Clients <span class="text-emerald-400">Say</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">VN Law Firm handled our $200M merger with extraordinary precision. Their attention to detail and strategic negotiation saved us millions. Absolutely world-class corporate counsel.</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/seed/ceo1/40/40.jpg?q=80" class="w-10 h-10 rounded-full object-cover" alt="Robert Aldridge" loading="lazy">
+                        <div>
+                            <div class="text-white text-sm font-medium">Robert Aldridge</div>
+                            <div class="text-white/40 text-xs">CEO, TechVenture Inc.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">When I was wrongfully terminated, VN Law Firm fought tirelessly for me. They secured a $3.2M settlement that changed my life. I can't recommend them enough.</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/seed/client5/40/40.jpg?q=80" class="w-10 h-10 rounded-full object-cover" alt="Maria Gonzalez" loading="lazy">
+                        <div>
+                            <div class="text-white text-sm font-medium">Maria Gonzalez</div>
+                            <div class="text-white/40 text-xs">Former VP, Global Corp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">The immigration team at VN Law made my dream of becoming a U.S. citizen a reality. Their compassion and expertise turned an overwhelming process into a smooth journey.</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/seed/client6/40/40.jpg?q=80" class="w-10 h-10 rounded-full object-cover" alt="Ahmed Hassan" loading="lazy">
+                        <div>
+                            <div class="text-white text-sm font-medium">Ahmed Hassan</div>
+                            <div class="text-white/40 text-xs">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">They defended me against federal charges with unmatched skill. The outcome was a full acquittal. VN Law Firm literally saved my life and my family's future.</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/seed/client7/40/40.jpg?q=80" class="w-10 h-10 rounded-full object-cover" alt="James Patterson" loading="lazy">
+                        <div>
+                            <div class="text-white text-sm font-medium">James Patterson</div>
+                            <div class="text-white/40 text-xs">Business Owner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">Our patent portfolio went from zero to 47 patents under VN Law's guidance. Sarah Chen and her IP team are simply the best in the business. Period.</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/seed/cto1/40/40.jpg?q=80" class="w-10 h-10 rounded-full object-cover" alt="Dr. Lisa Park" loading="lazy">
+                        <div>
+                            <div class="text-white text-sm font-medium">Dr. Lisa Park</div>
+                            <div class="text-white/40 text-xs">CTO, BioGenesis Labs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                        <i class="fas fa-star text-amber-400 text-xs"></i>
+                    </div>
+                    <p class="text-white/60 text-sm leading-relaxed mb-6">During my divorce, Priya Sharma handled everything with grace and ferocity. She protected my children's future and secured a fair settlement. Forever grateful.</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://picsum.photos/seed/client8/40/40.jpg?q=80" class="w-10 h-10 rounded-full object-cover" alt="Jennifer Torres" loading="lazy">
+                        <div>
+                            <div class="text-white text-sm font-medium">Jennifer Torres</div>
+                            <div class="text-white/40 text-xs">Entrepreneur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="py-24 md:py-32 relative">
+        <div class="max-w-3xl mx-auto px-6 md:px-8 lg:px-12">
+            <div class="text-center mb-16">
+                <div class="section-label mb-6 mx-auto">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                    FAQ
+                </div>
+                <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                    Frequently Asked <span class="text-emerald-400">Questions</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span class="text-white font-medium text-sm md:text-base">How much does an initial consultation cost?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p class="text-white/50 text-sm leading-relaxed">Your initial consultation is completely free. We believe everyone deserves access to legal guidance without financial barriers. During this meeting, we'll assess your case, explain your options, and provide a clear fee structure if you choose to proceed with us.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span class="text-white font-medium text-sm md:text-base">What are your fee structures?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p class="text-white/50 text-sm leading-relaxed">We offer flexible fee arrangements including hourly billing, flat fees for specific matters, contingency fees (where you pay nothing unless we win), and hybrid structures. We'll recommend the most cost-effective approach for your specific situation during your consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span class="text-white font-medium text-sm md:text-base">How long does a typical case take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p class="text-white/50 text-sm leading-relaxed">Case duration varies significantly by practice area and complexity. Simple matters may resolve in weeks, while complex litigation can take months to years. We provide realistic timelines during your consultation and keep you updated at every stage of your case.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span class="text-white font-medium text-sm md:text-base">Do you handle cases outside your listed practice areas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p class="text-white/50 text-sm leading-relaxed">While our 12 core practice areas cover the vast majority of legal needs, we also handle specialized matters including environmental law, healthcare law, entertainment law, and international arbitration. Contact us to discuss your specific situation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span class="text-white font-medium text-sm md:text-base">Can I schedule a consultation outside business hours?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p class="text-white/50 text-sm leading-relaxed">Absolutely. We understand that legal issues don't follow a 9-to-5 schedule. We offer evening and weekend consultations, and our emergency line is available 24/7 for urgent matters. Your case is our priority, whatever the hour.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFaq(this)">
+                        <span class="text-white font-medium text-sm md:text-base">What makes VN Law Firm different from other firms?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p class="text-white/50 text-sm leading-relaxed">Three things set us apart: our 98.7% success rate across all practice areas, our client-first approach where you always have direct access to your attorney, and our interdisciplinary team structure that brings multiple perspectives to every case. We don't just practice law—we deliver outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ===== CONTACT / CTA ===== -->
+    <section id="contact" class="py-24 md:py-32 relative">
+        <div class="deco-ring w-[400px] h-[400px] -top-40 right-10 opacity-20" style="animation-duration:45s;"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <div class="section-label mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                        Get Started
+                    </div>
+                    <h2 class="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
+                        Ready to Fight<br><span class="text-emerald-400">For Your Rights?</span>
+                    </h2>
+                    <p class="text-white/50 text-base md:text-lg leading-relaxed mb-10">
+                        Don't face your legal challenges alone. Schedule a free, confidential consultation with one of our expert attorneys today.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-400/10 border border-emerald-400/15 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-400/15 transition-all">
+                                <i class="fas fa-phone text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium text-sm mb-1">Call Us 24/7</div>
+                                <a href="tel:+1-555-123-4567" class="text-white/50 hover:text-white text-sm transition-colors">+1 (555) 123-4567</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-400/10 border border-emerald-400/15 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-400/15 transition-all">
+                                <i class="fas fa-envelope text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium text-sm mb-1">Email Us</div>
+                                <a href="mailto:consult@vnlawfirm.com" class="text-white/50 hover:text-white text-sm transition-colors">consult@vnlawfirm.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 group cursor-pointer">
+                            <div class="w-12 h-12 rounded-lg bg-emerald-400/10 border border-emerald-400/15 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-400/15 transition-all">
+                                <i class="fas fa-location-dot text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-medium text-sm mb-1">Visit Our Office</div>
+                                <div class="text-white/50 text-sm">1200 Legal Plaza, Suite 500<br>New York, NY 10022</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-10">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-emerald-400 hover:border-emerald-400/30 transition-all">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-emerald-400 hover:border-emerald-400/30 transition-all">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-emerald-400 hover:border-emerald-400/30 transition-all">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-emerald-400 hover:border-emerald-400/30 transition-all">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <form id="contactForm" class="glass-strong rounded-2xl p-8 md:p-10 space-y-5" novalidate>
+                        <h3 class="font-bricolage font-bold text-xl text-white mb-2 tracking-tight">Free Consultation Request</h3>
+                        <p class="text-white/40 text-sm mb-6">Fill out the form below and we'll get back to you within 2 hours.</p>
+
+                        <div id="formError" class="hidden bg-red-500/10 border border-red-500/20 rounded-lg p-3 text-red-400 text-sm"></div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-white/50 text-xs font-medium mb-2 block">First Name *</label>
+                                <input type="text" name="firstName" required placeholder="John" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/20 focus:outline-none focus:border-emerald-400/40 transition-colors" aria-label="First Name">
+                            </div>
+                            <div>
+                                <label class="text-white/50 text-xs font-medium mb-2 block">Last Name *</label>
+                                <input type="text" name="lastName" required placeholder="Doe" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/20 focus:outline-none focus:border-emerald-400/40 transition-colors" aria-label="Last Name">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-white/50 text-xs font-medium mb-2 block">Email *</label>
+                            <input type="email" name="email" required placeholder="john@example.com" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/20 focus:outline-none focus:border-emerald-400/40 transition-colors" aria-label="Email">
+                        </div>
+                        <div>
+                            <label class="text-white/50 text-xs font-medium mb-2 block">Phone</label>
+                            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/20 focus:outline-none focus:border-emerald-400/40 transition-colors" aria-label="Phone">
+                        </div>
+                        <div>
+                            <label class="text-white/50 text-xs font-medium mb-2 block">Practice Area *</label>
+                            <select name="practiceArea" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-400/40 transition-colors appearance-none cursor-pointer" style="background-image: url('data:image/svg+xml;utf8,<svg fill=\"rgba(255,255,255,0.4)\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z\"/></svg>'); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px;" aria-label="Practice Area">
+                                <option value="" disabled selected>Select a practice area</option>
+                                <option value="corporate">Corporate & Business Law</option>
+                                <option value="litigation">Litigation & Dispute Resolution</option>
+                                <option value="realestate">Real Estate & Property Law</option>
+                                <option value="ip">Intellectual Property</option>
+                                <option value="family">Family Law</option>
+                                <option value="criminal">Criminal Defense</option>
+                                <option value="immigration">Immigration Law</option>
+                                <option value="tax">Tax & Regulatory Compliance</option>
+                                <option value="employment">Employment & Labor Law</option>
+                                <option value="ma">Mergers & Acquisitions</option>
+                                <option value="banking">Banking & Finance</option>
+                                <option value="cyber">Cyber & Data Privacy Law</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-white/50 text-xs font-medium mb-2 block">Brief Description of Your Case *</label>
+                            <textarea name="message" required rows="4" placeholder="Please provide a brief overview of your legal matter..." class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder-white/20 focus:outline-none focus:border-emerald-400/40 transition-colors resize-none" aria-label="Case Description"></textarea>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" required id="consent" class="mt-1 accent-emerald-400 cursor-pointer" aria-label="Privacy consent">
+                            <label for="consent" class="text-white/40 text-xs leading-relaxed cursor-pointer">I agree to the privacy policy and understand that all information shared is protected by attorney-client privilege.</label>
+                        </div>
+                        <button type="submit" class="btn-accent w-full justify-center !py-4 !text-base relative overflow-hidden">
+                            <i class="fas fa-paper-plane text-sm"></i>
+                            <span class="submit-text">Submit Consultation Request</span>
+                            <span class="submit-loading hidden">
+                                <i class="fas fa-spinner fa-spin"></i> Submitting...
+                            </span>
+                        </button>
+                        <p class="text-white/30 text-[11px] text-center">No fees until you hire us. 100% confidential.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 lg:px-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-400 flex items-center justify-center">
+                            <span class="font-bricolage font-bold text-sm text-neutral-900">VN</span>
+                        </div>
+                        <div>
+                            <span class="font-bricolage font-semibold text-white text-base tracking-tight">VN Law Firm</span>
+                        </div>
+                    </div>
+                    <p class="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">Delivering uncompromising legal excellence for over 25 years. Your rights, our mission. Justice is not just a word—it's our practice.</p>
+                    <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-400/10 border border-emerald-400/15">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                            <span class="text-emerald-400 text-xs font-medium">Available 24/7</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-5">Practice Areas</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Corporate Law</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Litigation</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Criminal Defense</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Family Law</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Intellectual Property</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Immigration</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-5">More Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Real Estate</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Tax & Compliance</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Employment Law</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Mergers & Acquisitions</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Banking & Finance</a></li>
+                        <li><a href="#services" class="text-white/40 hover:text-white text-sm transition-colors">Cyber & Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-5">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-white/40 hover:text-white text-sm transition-colors">About Us</a></li>
+                        <li><a href="#team" class="text-white/40 hover:text-white text-sm transition-colors">Our Team</a></li>
+                        <li><a href="#testimonials" class="text-white/40 hover:text-white text-sm transition-colors">Testimonials</a></li>
+                        <li><a href="#faq" class="text-white/40 hover:text-white text-sm transition-colors">FAQ</a></li>
+                        <li><a href="#contact" class="text-white/40 hover:text-white text-sm transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-white/40 hover:text-white text-sm transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-divider mb-8"></div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-xs">© 2025 VN Law Firm. All rights reserved. Attorney Advertising.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Disclaimer</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Your consultation request has been submitted successfully!</span>
+    </div>
+
+    <script>
+        // ========== CONFIG ==========
+        const CONFIG = {
+            toastDuration: 4000,
+            formSubmitDelay: 1500
+        };
+
+        // ========== MOBILE MENU ==========
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileToggle?.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose?.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ========== FAQ TOGGLE ==========
+        function toggleFaq(header) {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+
+            document.querySelectorAll('.faq-item.active').forEach(i => {
+                if (i !== item) i.classList.remove('active');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // ========== TOAST ==========
+        function showToast(message, duration = CONFIG.toastDuration) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
+        }
+
+        // ========== FORM ==========
+        const contactForm = document.getElementById('contactForm');
+        const formError = document.getElementById('formError');
+
+        function validateForm(form) {
+            const formData = new FormData(form);
+            const errors = [];
+
+            const firstName = formData.get('firstName')?.trim();
+            const lastName = formData.get('lastName')?.trim();
+            const email = formData.get('email')?.trim();
+            const practiceArea = formData.get('practiceArea');
+            const message = formData.get('message')?.trim();
+            const consent = form.querySelector('#consent').checked;
+
+            if (!firstName) errors.push('First name is required');
+            if (!lastName) errors.push('Last name is required');
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Valid email is required');
+            if (!practiceArea) errors.push('Please select a practice area');
+            if (!message || message.length < 10) errors.push('Please provide at least 10 characters');
+            if (!consent) errors.push('You must agree to the privacy policy');
+
+            return { valid: errors.length === 0, errors };
+        }
+
+        contactForm?.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const { valid, errors } = validateForm(this);
+
+            if (!valid) {
+                formError.textContent = errors.join('. ');
+                formError.classList.remove('hidden');
+                return;
+            }
+
+            formError.classList.add('hidden');
+
+            const btn = this.querySelector('button[type="submit"]');
+            const submitText = btn.querySelector('.submit-text');
+            const submitLoading = btn.querySelector('.submit-loading');
+
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            submitText.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check text-sm"></i> Submitted!';
+                btn.style.background = 'linear-gradient(135deg, #22c55e, #10b981)';
+                showToast('Your consultation request has been submitted! We\'ll contact you within 2 hours.');
+
+                setTimeout(() => {
+                    btn.innerHTML =
+                        '<i class="fas fa-paper-plane text-sm"></i> <span class="submit-text">Submit Consultation Request</span> <span class="submit-loading hidden"><i class="fas fa-spinner fa-spin"></i> Submitting...</span>';
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.style.background = '';
+                    submitText.classList.remove('hidden');
+                    submitLoading.classList.add('hidden');
+                    this.reset();
+                    formError.classList.add('hidden');
+                }, 2000);
+            }, CONFIG.formSubmitDelay);
+        });
+
+        // ========== NAVBAR SCROLL ==========
+        const navbar = document.querySelector('nav > div');
+        let ticking = false;
+
+        function updateNavbar() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        });
+
+        // ========== SMOOTH SCROLL ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ========== ESC ==========
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // ========== REDUCED MOTION ==========
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.style.scrollBehavior = 'auto';
+        }
+
+        console.log('VN Law Firm — all content visible');
+    </script>
+
+</body>
+</html>
