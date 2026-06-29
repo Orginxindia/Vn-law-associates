@@ -43,12 +43,6 @@ export default function About() {
                 <div className="text-neutral-900 font-bricolage font-bold text-3xl mb-1">45+</div>
                 <div className="text-neutral-600 text-sm">Years fighting for our clients' rights</div>
               </div>
-              <div className="absolute top-4 right-8 lg:-top-4 lg:-right-4 glass-strong rounded-2xl p-4 backdrop-blur-xl">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse"></div>
-                  <span className="text-neutral-700 text-xs font-medium">Always Available</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
