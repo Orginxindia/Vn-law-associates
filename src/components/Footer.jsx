@@ -16,11 +16,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neutral-900 to-neutral-850 border border-neutral-800 flex items-center justify-center">
-                <span className="font-bricolage font-bold text-sm text-amber-400 animate-pulse">VN</span>
-              </div>
-              <div>
-                <span className="font-bricolage font-semibold text-white text-base tracking-tight">VN Law Firm</span>
+              <img src="/images/logo.png" className="w-10 h-10 object-contain rounded-lg bg-white p-0.5" alt="VN Law Logo" />
+              <div className="flex flex-col">
+                <span className="font-bricolage font-semibold text-white text-base tracking-tight leading-none mb-0.5">VN Law Firm</span>
+                <span className="text-neutral-500 text-xs font-light">Madurai</span>
               </div>
             </div>
             <p className="text-neutral-400 text-sm leading-relaxed mb-6 max-w-sm">

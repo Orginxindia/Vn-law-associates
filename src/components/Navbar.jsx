@@ -54,12 +54,10 @@ export default function Navbar() {
       <nav ref={navRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/70 backdrop-blur-md border-b border-black/5 shadow-sm py-3' : 'bg-transparent py-5'}`} id="navbar">
         <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neutral-950 to-neutral-750 flex items-center justify-center">
-              <span className="font-bricolage font-bold text-sm text-white">VN</span>
-            </div>
-            <div>
-              <span className="font-bricolage font-semibold text-neutral-900 text-base tracking-tight">VN Law</span>
-              <span className="hidden sm:inline text-neutral-500 text-xs ml-2 font-light">Firm</span>
+            <img src="/images/logo.png" className="w-10 h-10 object-contain rounded-lg bg-white p-0.5 shadow-sm border border-neutral-200/50" alt="VN Law Logo" />
+            <div className="flex flex-col">
+              <span className="font-bricolage font-semibold text-neutral-900 text-sm md:text-base tracking-tight leading-none mb-0.5">VN Law Firm</span>
+              <span className="text-neutral-500 text-[10px] md:text-xs font-medium tracking-wider uppercase leading-none">Madurai</span>
             </div>
           </a>
           <div className="hidden lg:flex items-center gap-8">

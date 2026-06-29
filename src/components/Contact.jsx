@@ -106,7 +106,7 @@ export default function Contact({ onSubmit }) {
                 </div>
                 <div>
                   <div className="text-neutral-900 font-medium text-sm mb-1">WhatsApp Chat</div>
-                  <a href="https://wa.me/919003617313" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">+91 90036 17313</a>
+                  <a href="https://wa.me/919003617313?text=Hello%20VN%20Law%20Firm%2C%20I%20would%20like%20to%20schedule%20a%20free%20legal%20consultation.%0A%0AName%3A%20%0ACase%20Type%3A%20%0AMessage%3A%20" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">+91 90036 17313</a>
                 </div>
               </div>
               <div className="flex items-start gap-4 group cursor-pointer">

@@ -67,7 +67,7 @@ function App() {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="w-16 h-16 rounded-2xl bg-gradient-to-br from-neutral-900 to-neutral-850 border border-neutral-800 flex items-center justify-center shadow-2xl mb-4 relative"
               >
-                <span className="font-bricolage font-bold text-xl text-amber-400">VN</span>
+                <img src="/images/logo.png" className="w-11 h-11 object-contain rounded-lg bg-white p-0.5" alt="VN Law Logo" />
                 {/* Circular pulsing ring */}
                 <motion.div 
                   animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0.1, 0.6] }}
@@ -125,7 +125,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/919003617313" 
+        href="https://wa.me/919003617313?text=Hello%20VN%20Law%20Firm%2C%20I%20would%20like%20to%20schedule%20a%20free%20legal%20consultation.%0A%0AName%3A%20%0ACase%20Type%3A%20%0AMessage%3A%20" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group border border-emerald-400"
