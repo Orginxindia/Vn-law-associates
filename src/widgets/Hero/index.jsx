@@ -88,23 +88,23 @@ export const HeroWidget = () => {
       
       {/* Premium Floating Colorful Fillers */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Emerald Glow */}
+        {/* White Glow */}
         <motion.div 
           animate={{ y: [-15, 15, -15], x: [-10, 10, -10] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 right-10 w-[350px] h-[350px] rounded-full bg-emerald-400/25 blur-[120px]" 
+          className="absolute top-10 right-10 w-[350px] h-[350px] rounded-full bg-neutral-350/20 blur-[120px]" 
         />
-        {/* Amber Gold Glow */}
+        {/* Silver Glow */}
         <motion.div 
           animate={{ y: [15, -15, 15], x: [10, -10, 10] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/3 left-10 w-[400px] h-[400px] rounded-full bg-amber-300/20 blur-[130px]" 
+          className="absolute top-1/3 left-10 w-[400px] h-[400px] rounded-full bg-neutral-200/15 blur-[130px]" 
         />
-        {/* Cyan/Blue Glow */}
+        {/* Light Gray Glow */}
         <motion.div 
           animate={{ y: [-20, 20, -20], x: [15, -15, 15] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-10 right-1/4 w-[300px] h-[300px] rounded-full bg-cyan-400/20 blur-[110px]" 
+          className="absolute bottom-10 right-1/4 w-[300px] h-[300px] rounded-full bg-neutral-300/15 blur-[110px]" 
         />
       </div>
 
@@ -123,15 +123,15 @@ export const HeroWidget = () => {
               variants={fadeUp} 
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-neutral-800 mb-6"
             >
-              <Scale size={14} className="text-neutral-950" />
+              <Scale size={14} className="text-neutral-900" />
               Prestige Legal Representation
             </motion.div>
 
             {/* Headline */}
-            <h1 className="font-bricolage font-bold text-5xl sm:text-6xl xl:text-7xl leading-[1.05] tracking-tight mb-8 text-neutral-950">
+            <h1 className="font-bricolage font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight mb-8 text-neutral-950">
               <SplitText>Uncompromising</SplitText>{' '}
               <SplitText>Advocacy for</SplitText>{' '}
-              <SplitText className="bg-gradient-to-r from-black via-neutral-900 to-neutral-750 bg-clip-text text-transparent">
+              <SplitText className="bg-gradient-to-r from-black via-neutral-800 to-neutral-600 bg-clip-text text-transparent">
                 Your Rights
               </SplitText>
             </h1>
@@ -170,7 +170,7 @@ export const HeroWidget = () => {
             {/* The Big Photo of Advocate V. Nagendran (shifted slightly right) */}
             <motion.div 
               style={{ y: mainImageY }}
-              className="absolute right-12 md:right-16 top-4 w-[75%] md:w-[80%] h-[440px] md:h-[520px] overflow-hidden rounded-3xl border border-black/5 shadow-2xl bg-neutral-100 z-10"
+              className="absolute right-0 left-0 mx-auto md:left-auto md:mx-0 right-4 sm:right-12 md:right-16 top-4 w-[85%] md:w-[80%] h-[400px] sm:h-[460px] md:h-[520px] overflow-hidden rounded-3xl border border-black/5 shadow-2xl bg-neutral-100 z-10"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: motionTheme.ease }}
@@ -186,7 +186,7 @@ export const HeroWidget = () => {
             {/* Advocate V. Nagendran Details: Horizontally big, vertically small, close to right side */}
             <motion.div 
               style={{ y: secondaryImageY }}
-              className="absolute right-0 md:-right-8 bottom-10 z-20 w-[90%] sm:w-[420px] md:w-[480px] bg-white/95 border border-black/5 rounded-2xl p-5 md:p-6 shadow-2xl backdrop-blur-md"
+              className="absolute right-0 left-0 mx-auto md:left-auto md:mx-0 md:-right-8 bottom-4 sm:bottom-10 z-20 w-[95%] sm:w-[90%] md:w-[480px] bg-white/95 border border-black/5 rounded-2xl p-5 md:p-6 shadow-2xl backdrop-blur-md"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 1, ease: motionTheme.ease }}
@@ -202,8 +202,8 @@ export const HeroWidget = () => {
                       M.A., B.L., D.M.D.L.
                     </p>
                   </div>
-                  <div className="self-start sm:self-center flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[9px] font-bold tracking-wider uppercase">
-                    <span className="w-1 h-1 rounded-full bg-emerald-600"></span>
+                  <div className="self-start sm:self-center flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[9px] font-bold tracking-wider uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neutral-650 animate-pulse"></span>
                     CEO & Founder
                   </div>
                 </div>
@@ -213,7 +213,7 @@ export const HeroWidget = () => {
                 
                 {/* Bottom Row: Bio */}
                 <p className="text-neutral-700 text-xs md:text-[13px] leading-relaxed font-medium">
-                  Former Additional Government leader, Madurai District. High court and district court senior-most lawyer.
+                  Former Additional Government Leader, Madurai District. High court and district court senior-most lawyer.
                 </p>
               </div>
             </motion.div>

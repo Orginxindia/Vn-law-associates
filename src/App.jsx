@@ -72,7 +72,7 @@ function App() {
                 <motion.div 
                   animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0.1, 0.6] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 rounded-2xl border-2 border-amber-400/30"
+                  className="absolute inset-0 rounded-2xl border-2 border-white/20"
                 />
               </motion.div>
               
@@ -88,7 +88,7 @@ function App() {
                   <motion.div 
                     animate={{ x: ['-100%', '100%'] }}
                     transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-amber-400"
+                    className="absolute inset-0 bg-white"
                   />
                 </div>
               </motion.div>
@@ -128,7 +128,7 @@ function App() {
         href="https://wa.me/919003617313?text=Hello%20VN%20Law%20Firm%2C%20I%20would%20like%20to%20schedule%20a%20free%20legal%20consultation.%0A%0AName%3A%20%0ACase%20Type%3A%20%0AMessage%3A%20" 
         target="_blank" 
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group border border-emerald-400"
+        className="fixed bottom-6 right-6 z-40 bg-neutral-950 hover:bg-neutral-900 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group border border-neutral-800"
         title="Chat with us on WhatsApp"
       >
         <i className="fab fa-whatsapp text-2xl" />
@@ -136,7 +136,7 @@ function App() {
           Chat on WhatsApp
         </span>
         {/* Pulsing ring indicator */}
-        <span className="absolute -inset-1 rounded-full border-2 border-emerald-400/25 animate-ping -z-10" />
+        <span className="absolute -inset-1 rounded-full border-2 border-white/10 animate-ping -z-10" />
       </a>
     </>
   );

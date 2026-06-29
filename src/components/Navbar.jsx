@@ -91,7 +91,7 @@ export default function Navbar() {
       <div className={`mobile-menu${mobileOpen ? ' active' : ''}`} id="mobileMenu">
         <button
           id="mobileClose"
-          className="absolute top-6 right-6 w-10 h-10 rounded-lg bg-neutral-900/5 border border-neutral-900/10 flex items-center justify-center text-neutral-900/70 hover:text-neutral-900 transition-all"
+          className="absolute top-6 right-6 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all"
           aria-label="Close menu"
           onClick={closeMobile}
         >
@@ -103,7 +103,7 @@ export default function Navbar() {
         <a href="#team" className="mobile-nav-link" onClick={(e) => handleNavClick(e, '#team')}>Team</a>
         <a href="#testimonials" className="mobile-nav-link" onClick={(e) => handleNavClick(e, '#testimonials')}>Testimonials</a>
         <a href="#faq" className="mobile-nav-link" onClick={(e) => handleNavClick(e, '#faq')}>FAQ</a>
-        <a href="#contact" className="btn-accent mt-4" onClick={(e) => handleNavClick(e, '#contact')}>Free Consultation</a>
+        <a href="#contact" className="mt-4 bg-white text-neutral-950 font-bold px-6 py-3 rounded-xl hover:bg-neutral-100 transition-colors shadow-lg" onClick={(e) => handleNavClick(e, '#contact')}>Free Consultation</a>
       </div>
     </>
   );

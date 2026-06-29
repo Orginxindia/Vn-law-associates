@@ -74,7 +74,7 @@ export default function Contact({ onSubmit }) {
   }, [validate, onSubmit]);
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       <div className="deco-ring w-[400px] h-[400px] -top-40 right-10 opacity-20" style={{ animationDuration: '45s' }}></div>
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -139,7 +139,7 @@ export default function Contact({ onSubmit }) {
           </div>
 
           <div>
-            <form ref={formRef} id="contactForm" className="glass-strong rounded-2xl p-8 md:p-10 space-y-5" noValidate onSubmit={handleSubmit}>
+            <form ref={formRef} id="contactForm" className="glass-strong rounded-2xl p-5 sm:p-8 md:p-10 space-y-5" noValidate onSubmit={handleSubmit}>
               <h3 className="font-bricolage font-bold text-xl text-neutral-900 mb-2 tracking-tight">Free Consultation Request</h3>
               <p className="text-neutral-500 text-sm mb-6">Fill out the form below and we'll get back to you within 2 hours.</p>
 

@@ -25,8 +25,8 @@ export default function About() {
                 { title: 'Best Lawyers®', sub: '2024 Edition' },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-neutral-900/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <i className="fas fa-check text-neutral-900 text-xs"></i>
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-neutral-900/5 border border-neutral-900/10 text-neutral-900">
+                    <i className="fas fa-check text-xs"></i>
                   </div>
                   <div>
                     <div className="text-neutral-900 text-sm font-medium">{item.title}</div>
@@ -37,13 +37,13 @@ export default function About() {
             </div>
           </div>
           <div>
-            <div className="relative">
-              <img src="/about_nagendran.jpg" className="w-full h-[520px] object-cover rounded-2xl shadow-2xl border border-black/5" alt="Advocate V. Nagendran Office" loading="lazy" />
-              <div className="absolute -bottom-6 -left-6 glass-strong rounded-2xl p-5 max-w-[220px] backdrop-blur-xl">
+            <div className="relative px-4 lg:px-0">
+              <img src="/about_nagendran.jpg" className="w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover rounded-2xl shadow-2xl border border-black/5" alt="Advocate V. Nagendran Office" loading="lazy" />
+              <div className="absolute bottom-4 left-8 lg:-bottom-6 lg:-left-6 glass-strong rounded-2xl p-5 max-w-[220px] backdrop-blur-xl">
                 <div className="text-neutral-900 font-bricolage font-bold text-3xl mb-1">45+</div>
                 <div className="text-neutral-600 text-sm">Years fighting for our clients' rights</div>
               </div>
-              <div className="absolute -top-4 -right-4 glass-strong rounded-2xl p-4 backdrop-blur-xl">
+              <div className="absolute top-4 right-8 lg:-top-4 lg:-right-4 glass-strong rounded-2xl p-4 backdrop-blur-xl">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse"></div>
                   <span className="text-neutral-700 text-xs font-medium">Always Available</span>

@@ -461,8 +461,9 @@ body {
     position: fixed;
     inset: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -471,6 +472,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
 .mobile-menu.active {
     opacity: 1;
@@ -479,12 +481,12 @@ body {
 .mobile-menu a {
     font-size: 22px;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #a3a3a3;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 .mobile-menu a:hover {
-    color: var(--accent-primary);
+    color: #ffffff;
 }
 
 /* toast */
