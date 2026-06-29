@@ -24,12 +24,12 @@ export default function About() {
                 { title: 'AV Preeminent', sub: 'Highest Ethical Standards' },
                 { title: 'Best Lawyers®', sub: '2024 Edition' },
               ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-neutral-900/5 border border-neutral-900/10 text-neutral-900">
+                <div key={item.title} className="flex items-start gap-3 group cursor-pointer">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-neutral-900/5 border border-neutral-900/10 text-neutral-900 group-hover:bg-neutral-950 group-hover:text-white group-hover:border-neutral-950 transition-all duration-300 shadow-sm">
                     <i className="fas fa-check text-xs"></i>
                   </div>
                   <div>
-                    <div className="text-neutral-900 text-sm font-medium">{item.title}</div>
+                    <div className="text-neutral-900 text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{item.title}</div>
                     <div className="text-neutral-500 text-xs">{item.sub}</div>
                   </div>
                 </div>
@@ -39,7 +39,7 @@ export default function About() {
           <div>
             <div className="relative px-4 lg:px-0">
               <img src="/about_nagendran.jpg" className="w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover rounded-2xl shadow-2xl border border-black/5" alt="Advocate V. Nagendran Office" loading="lazy" />
-              <div className="absolute bottom-4 left-8 lg:-bottom-6 lg:-left-6 glass-strong rounded-2xl p-5 max-w-[220px] backdrop-blur-xl">
+              <div className="absolute bottom-4 left-8 lg:-bottom-6 lg:-left-6 glass-strong rounded-2xl p-5 max-w-[220px] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 hover:scale-103 cursor-default shadow-xl">
                 <div className="text-neutral-900 font-bricolage font-bold text-3xl mb-1">45+</div>
                 <div className="text-neutral-600 text-sm">Years fighting for our clients' rights</div>
               </div>

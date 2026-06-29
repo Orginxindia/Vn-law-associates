@@ -27,11 +27,11 @@ export default function Process() {
           </div>
           <div className="space-y-10">
             {STEPS.map((step) => (
-              <div key={step.num} className="process-step">
-                <div className="process-dot"></div>
-                <div className="glass rounded-xl p-6">
-                  <div className="text-neutral-900 font-bricolage font-bold text-sm mb-2">Step {step.num}</div>
-                  <h3 className="font-bricolage font-semibold text-xl text-neutral-900 mb-3 tracking-tight">{step.title}</h3>
+              <div key={step.num} className="process-step group">
+                <div className="process-dot group-hover:border-neutral-950 group-hover:bg-neutral-100 transition-colors duration-300"></div>
+                <div className="glass rounded-xl p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-neutral-950/20 hover:shadow-xl cursor-pointer">
+                  <div className="text-neutral-500 group-hover:text-neutral-950 font-bricolage font-bold text-sm mb-2 transition-colors duration-300">Step {step.num}</div>
+                  <h3 className="font-bricolage font-semibold text-xl text-neutral-900 mb-3 tracking-tight group-hover:text-black transition-colors duration-300">{step.title}</h3>
                   <p className="text-neutral-600 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>

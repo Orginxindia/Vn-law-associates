@@ -39,7 +39,7 @@ export default function FAQ() {
             return (
               <div 
                 key={idx} 
-                className={`border border-neutral-800/80 rounded-xl overflow-hidden bg-neutral-900/10 backdrop-blur-sm transition-all duration-300 hover:border-white/20 group ${
+                className={`border border-neutral-800/80 rounded-xl overflow-hidden bg-neutral-900/10 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/[0.005] group ${
                   isActive ? 'border-white/25 bg-neutral-900/25 shadow-lg shadow-white/[0.005]' : ''
                 }`}
               >
