@@ -156,7 +156,7 @@ export default function Team() {
                   <motion.div 
                     animate={{ x: ['-100%', '100%'] }} 
                     transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }} 
-                    className="absolute inset-0 bg-amber-400" 
+                    className="absolute inset-0 bg-white" 
                   />
                 </div>
               </div>

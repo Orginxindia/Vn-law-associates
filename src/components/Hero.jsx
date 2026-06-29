@@ -42,11 +42,11 @@ export default function Hero() {
               </div>
               <div>
                 <div className="flex items-center gap-1 mb-0.5">
-                  <i className="fas fa-star text-amber-400 text-xs"></i>
-                  <i className="fas fa-star text-amber-400 text-xs"></i>
-                  <i className="fas fa-star text-amber-400 text-xs"></i>
-                  <i className="fas fa-star text-amber-400 text-xs"></i>
-                  <i className="fas fa-star text-amber-400 text-xs"></i>
+                  <i className="fas fa-star text-neutral-350 text-xs"></i>
+                  <i className="fas fa-star text-neutral-350 text-xs"></i>
+                  <i className="fas fa-star text-neutral-350 text-xs"></i>
+                  <i className="fas fa-star text-neutral-350 text-xs"></i>
+                  <i className="fas fa-star text-neutral-350 text-xs"></i>
                 </div>
                 <span className="text-neutral-600 text-xs">Trusted by 2,500+ clients</span>
               </div>

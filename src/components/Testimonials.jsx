@@ -11,7 +11,7 @@ function Stars() {
   return (
     <div className="flex items-center gap-1 mb-4">
       {[...Array(5)].map((_, i) => (
-        <i key={i} className="fas fa-star text-amber-400 text-xs"></i>
+        <i key={i} className="fas fa-star text-neutral-350 text-xs"></i>
       ))}
     </div>
   );
