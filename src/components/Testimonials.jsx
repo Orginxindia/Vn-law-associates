@@ -83,7 +83,7 @@ export default function Testimonials() {
               >
                 <div className="quote-mark text-neutral-250 select-none">"</div>
                 <Stars />
-                <p className="text-neutral-600 text-xs md:text-sm leading-relaxed mb-5 min-h-[72px] line-clamp-3 select-text">{t.quote}</p>
+                <p className="text-neutral-600 text-xs md:text-sm leading-relaxed mb-5 select-text">{t.quote}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.img} className="w-9 h-9 rounded-full object-cover border border-neutral-100" alt={t.name} loading="lazy" />
                   <div>
@@ -106,7 +106,7 @@ export default function Testimonials() {
               >
                 <div className="quote-mark text-neutral-250 select-none">"</div>
                 <Stars />
-                <p className="text-neutral-600 text-xs md:text-sm leading-relaxed mb-5 min-h-[72px] line-clamp-3 select-text">{t.quote}</p>
+                <p className="text-neutral-600 text-xs md:text-sm leading-relaxed mb-5 select-text">{t.quote}</p>
                 <div className="flex items-center gap-3">
                   <img src={t.img} className="w-9 h-9 rounded-full object-cover border border-neutral-100" alt={t.name} loading="lazy" />
                   <div>
