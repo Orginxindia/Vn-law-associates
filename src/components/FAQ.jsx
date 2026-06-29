@@ -19,17 +19,17 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-24 md:py-32 relative bg-neutral-950 text-white border-t border-b border-neutral-900 overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-white/[0.015] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-amber-500/[0.025] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-orange-500/[0.015] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-3xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-350 text-xs font-semibold tracking-wider uppercase mb-6 mx-auto">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/5 border border-amber-500/10 text-amber-300 text-xs font-semibold tracking-wider uppercase mb-6 mx-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
             FAQ
           </div>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6 text-white">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">Questions</span>
+          <h2 className="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6 text-amber-100">
+            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500">Questions</span>
           </h2>
         </div>
 
@@ -39,8 +39,8 @@ export default function FAQ() {
             return (
               <div 
                 key={idx} 
-                className={`border border-neutral-800/80 rounded-xl overflow-hidden bg-neutral-900/10 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/[0.005] group ${
-                  isActive ? 'border-white/25 bg-neutral-900/25 shadow-lg shadow-white/[0.005]' : ''
+                className={`border border-neutral-800/80 rounded-xl overflow-hidden bg-neutral-900/10 backdrop-blur-sm transition-all duration-300 hover:border-amber-500/30 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/[0.01] group ${
+                  isActive ? 'border-amber-400/40 bg-neutral-900/25 shadow-lg shadow-amber-500/[0.01]' : ''
                 }`}
               >
                 {/* Header */}
@@ -49,12 +49,12 @@ export default function FAQ() {
                   onClick={() => toggle(idx)}
                 >
                   <span className={`font-medium text-sm md:text-base transition-colors duration-300 ${
-                    isActive ? 'text-white' : 'text-neutral-200 group-hover:text-white'
+                    isActive ? 'text-amber-300' : 'text-neutral-200 group-hover:text-amber-100'
                   }`}>
                     {item.q}
                   </span>
                   <i className={`fas fa-chevron-down text-xs text-neutral-450 transition-all duration-500 ${
-                    isActive ? 'rotate-180 text-white' : 'group-hover:text-neutral-200'
+                    isActive ? 'rotate-180 text-amber-400' : 'group-hover:text-neutral-200'
                   }`}></i>
                 </div>
 

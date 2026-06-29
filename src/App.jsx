@@ -57,7 +57,7 @@ function App() {
           <motion.div 
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeInOut' } }}
-            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-neutral-950 text-white select-none pointer-events-auto"
+            className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-neutral-950 text-amber-100 select-none pointer-events-auto"
           >
             <div className="relative flex flex-col items-center">
               {/* Pulsing law firm monogram */}
@@ -72,7 +72,7 @@ function App() {
                 <motion.div 
                   animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0.1, 0.6] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 rounded-2xl border-2 border-white/20"
+                  className="absolute inset-0 rounded-2xl border-2 border-amber-400/20"
                 />
               </motion.div>
               
@@ -83,12 +83,12 @@ function App() {
                 transition={{ delay: 0.25, duration: 0.5 }}
                 className="flex flex-col items-center gap-1"
               >
-                <h2 className="font-bricolage font-bold text-xs tracking-[0.2em] text-neutral-300 uppercase">VN LAW FIRM</h2>
+                <h2 className="font-bricolage font-bold text-xs tracking-[0.2em] text-amber-300 uppercase">VN LAW FIRM</h2>
                 <div className="w-24 h-[1.5px] bg-neutral-850 relative overflow-hidden mt-1 rounded-full">
                   <motion.div 
                     animate={{ x: ['-100%', '100%'] }}
                     transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute inset-0 bg-white"
+                    className="absolute inset-0 bg-amber-400"
                   />
                 </div>
               </motion.div>

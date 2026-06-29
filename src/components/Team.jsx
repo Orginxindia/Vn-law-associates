@@ -127,8 +127,8 @@ export default function Team() {
       >
         <div className="sticky top-0 h-screen flex items-center overflow-hidden">
           {/* Subtle Ambient Background Light */}
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-neutral-350/[0.015] rounded-full blur-[160px] pointer-events-none" />
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/[0.03] rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-orange-500/[0.02] rounded-full blur-[160px] pointer-events-none" />
 
           {/* Scrolling Horizontal Track */}
           <motion.div 
@@ -138,13 +138,13 @@ export default function Team() {
           >
             {/* Slide 1: Premium Title Slide */}
             <div className="w-[450px] lg:w-[500px] flex-shrink-0 flex flex-col justify-center pr-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-350 text-xs font-semibold tracking-wider uppercase mb-6 w-max">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/5 border border-amber-500/10 text-amber-300 text-xs font-semibold tracking-wider uppercase mb-6 w-max">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 Our Attorneys
               </div>
-              <h2 className="font-bricolage font-bold text-4xl lg:text-5xl tracking-tight leading-[1.15] mb-6 text-white">
+              <h2 className="font-bricolage font-bold text-4xl lg:text-5xl tracking-tight leading-[1.15] mb-6 text-amber-100">
                 Meet the <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">Legal Minds</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500">Legal Minds</span>
               </h2>
               <p className="text-neutral-400 text-base lg:text-lg leading-relaxed mb-8">
                 Our attorneys bring decades of combined experience from top law schools, federal clerkships, and leading global practices.
@@ -156,7 +156,7 @@ export default function Team() {
                   <motion.div 
                     animate={{ x: ['-100%', '100%'] }} 
                     transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }} 
-                    className="absolute inset-0 bg-white" 
+                    className="absolute inset-0 bg-amber-400" 
                   />
                 </div>
               </div>
@@ -168,13 +168,13 @@ export default function Team() {
               return (
                 <div 
                   key={member.name}
-                  className="w-[340px] lg:w-[360px] h-[500px] lg:h-[530px] flex-shrink-0 relative rounded-2xl border border-neutral-800/80 bg-neutral-900/20 backdrop-blur-sm overflow-hidden group hover:border-white/20 hover:shadow-2xl hover:shadow-white/[0.01] transition-all duration-500 shadow-xl"
+                  className="w-[340px] lg:w-[360px] h-[500px] lg:h-[530px] flex-shrink-0 relative rounded-2xl border border-neutral-800/80 bg-neutral-900/20 backdrop-blur-sm overflow-hidden group hover:border-amber-400/40 hover:shadow-2xl hover:shadow-amber-500/[0.01] transition-all duration-500 shadow-xl"
                 >
                   {/* Gray-to-Color Image Wrapper */}
                   <div className="h-[65%] w-full overflow-hidden relative">
                     {member.isLegacy && (
-                      <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-[9px] text-neutral-300 font-bold tracking-widest uppercase shadow-lg flex items-center gap-1.5">
-                        <i className="fas fa-ribbon text-white"></i> Legacy Tribute
+                      <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-amber-500/10 text-[9px] text-neutral-300 font-bold tracking-widest uppercase shadow-lg flex items-center gap-1.5">
+                        <i className="fas fa-ribbon text-amber-400"></i> Legacy Tribute
                       </div>
                     )}
                     <img 
@@ -187,14 +187,14 @@ export default function Team() {
                   </div>
 
                   {/* Elegant Index Number overlay */}
-                  <span className="absolute top-4 right-6 text-7xl font-bricolage font-black text-neutral-800/25 group-hover:text-white/10 transition-colors duration-500 select-none pointer-events-none">
+                  <span className="absolute top-4 right-6 text-7xl font-bricolage font-black text-neutral-800/25 group-hover:text-amber-500/10 transition-colors duration-500 select-none pointer-events-none">
                     {formattedIndex}
                   </span>
 
                   {/* Details Overlay */}
                   <div className="p-5 h-[35%] flex flex-col justify-between relative bg-neutral-900">
                     <div>
-                      <h4 className="font-bricolage font-bold text-white text-base lg:text-lg leading-tight mb-0.5 group-hover:text-white transition-colors duration-300">
+                      <h4 className="font-bricolage font-bold text-amber-100 text-base lg:text-lg leading-tight mb-0.5 group-hover:text-amber-300 transition-colors duration-300">
                         {member.name}
                       </h4>
                       <p className="text-neutral-450 text-[10px] lg:text-xs font-semibold uppercase tracking-wider mb-1.5">
@@ -204,7 +204,7 @@ export default function Team() {
                       {/* Specialties / Tags */}
                       <div className="flex flex-wrap gap-1 mb-1.5">
                         {member.specialties.map((spec) => (
-                          <span key={spec} className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-neutral-950 text-neutral-450 border border-neutral-800/80 transition-colors duration-300 group-hover:text-white group-hover:border-white/10">
+                          <span key={spec} className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-neutral-950 text-neutral-450 border border-neutral-800/80 transition-colors duration-300 group-hover:text-amber-300 group-hover:border-amber-500/10">
                             {spec}
                           </span>
                         ))}
@@ -225,9 +225,9 @@ export default function Team() {
             {/* Slide 10: Outro CTA Slide */}
             <div className="w-[380px] lg:w-[420px] h-[500px] lg:h-[530px] flex-shrink-0 flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-dashed border-neutral-800 bg-neutral-950">
               <div className="w-16 h-16 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-6">
-                <i className="fas fa-balance-scale text-white text-2xl" />
+                <i className="fas fa-balance-scale text-amber-400 text-2xl" />
               </div>
-              <h3 className="font-bricolage font-bold text-2xl lg:text-3xl text-white mb-4 leading-tight">
+              <h3 className="font-bricolage font-bold text-2xl lg:text-3xl text-amber-100 mb-4 leading-tight">
                 Our Entire Roster <br/>
                 At Your Disposal
               </h3>
@@ -237,7 +237,7 @@ export default function Team() {
               
               <a 
                 href="#contact" 
-                className="group inline-flex items-center gap-3 px-6 py-3.5 bg-white hover:bg-neutral-100 text-neutral-950 font-bold text-sm rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-white/5"
+                className="group inline-flex items-center gap-3 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-neutral-950 font-bold text-sm rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-amber-400/10"
               >
                 View All 500+ Attorneys
                 <i className="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1 text-neutral-950" />
@@ -249,15 +249,15 @@ export default function Team() {
 
       {/* Mobile view (Smooth swipeable list with native snap scroll) - Hidden on desktop */}
       <section id="team-mobile" className="block md:hidden py-20 bg-neutral-950 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-white/[0.015] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/[0.025] rounded-full blur-[100px] pointer-events-none" />
         
         <div className="px-6 mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-neutral-350 text-[10px] font-semibold tracking-wider uppercase mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/5 border border-amber-500/10 text-amber-300 text-[10px] font-semibold tracking-wider uppercase mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             Our Attorneys
           </div>
-          <h2 className="font-bricolage font-bold text-3xl tracking-tight mb-4">
-            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">Legal Minds</span>
+          <h2 className="font-bricolage font-bold text-3xl tracking-tight mb-4 text-amber-100">
+            Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-500">Legal Minds</span>
           </h2>
           <p className="text-neutral-400 text-sm leading-relaxed">
             Our attorneys bring decades of combined experience from top law schools and leading global practices. Swipe to browse.
@@ -273,8 +273,8 @@ export default function Team() {
             >
               <div className="h-[65%] relative overflow-hidden">
                 {member.isLegacy && (
-                  <div className="absolute top-3 left-3 z-20 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md border border-white/10 text-[8px] text-neutral-300 font-bold tracking-widest uppercase shadow-lg flex items-center gap-1">
-                    <i className="fas fa-ribbon text-white"></i> Legacy Tribute
+                  <div className="absolute top-3 left-3 z-20 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md border border-amber-500/10 text-[8px] text-neutral-300 font-bold tracking-widest uppercase shadow-lg flex items-center gap-1">
+                    <i className="fas fa-ribbon text-amber-400"></i> Legacy Tribute
                   </div>
                 )}
                 <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top filter grayscale contrast-[1.05] group-hover:grayscale-0 transition-all duration-300" loading="lazy" />
@@ -282,7 +282,7 @@ export default function Team() {
               </div>
               <div className="p-5 flex flex-col justify-between flex-grow bg-neutral-950">
                 <div>
-                  <h4 className="font-bricolage font-bold text-white text-base leading-tight mb-1">
+                  <h4 className="font-bricolage font-bold text-amber-100 text-base leading-tight mb-1">
                     {member.name}
                   </h4>
                   <p className="text-neutral-400 text-xs font-semibold uppercase tracking-wider mb-2">
@@ -304,9 +304,9 @@ export default function Team() {
           {/* End CTA Panel in mobile swipe */}
             <div className="w-[280px] flex-shrink-0 snap-center rounded-xl border border-dashed border-neutral-850 bg-neutral-950 flex flex-col justify-center items-center text-center p-6 h-[460px]">
               <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4">
-                <i className="fas fa-balance-scale text-white text-xl" />
+                <i className="fas fa-balance-scale text-amber-400 text-xl" />
               </div>
-              <h3 className="font-bricolage font-bold text-xl text-white mb-3 leading-tight">
+              <h3 className="font-bricolage font-bold text-xl text-amber-100 mb-3 leading-tight">
                 Our Roster
               </h3>
               <p className="text-neutral-400 text-xs leading-relaxed mb-6 px-4">
@@ -314,7 +314,7 @@ export default function Team() {
               </p>
               <a 
                 href="#contact" 
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-neutral-950 font-bold text-xs rounded-lg transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-amber-400 text-neutral-950 font-bold text-xs rounded-lg transition-all duration-300"
               >
               View All 500+ Attorneys
               <i className="fas fa-arrow-right text-[10px] text-neutral-950" />
