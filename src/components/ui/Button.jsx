@@ -17,7 +17,7 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
-    const baseStyles = 'font-medium transition-all duration-200 inline-flex items-center gap-2';
+    const baseStyles = 'font-medium inline-flex items-center gap-2 shine-effect';
 
     const variants = {
       primary: 'bg-neutral-950 text-white hover:bg-neutral-800',
@@ -47,8 +47,9 @@ const Button = React.forwardRef(
         <motion.a
           href={href}
           className={buttonClass}
-          whileHover={{ y: -2 }}
-          whileTap={{ y: 0 }}
+          whileHover={{ y: -3, scale: 1.015 }}
+          whileTap={{ scale: 0.985 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           ref={ref}
           {...props}
         >
@@ -62,8 +63,9 @@ const Button = React.forwardRef(
         className={buttonClass}
         onClick={onClick}
         disabled={disabled || loading}
-        whileHover={{ y: -2 }}
-        whileTap={{ y: 0 }}
+        whileHover={{ y: -3, scale: 1.015 }}
+        whileTap={{ scale: 0.985 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
         ref={ref}
         {...props}
       >

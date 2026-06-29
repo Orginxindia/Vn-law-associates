@@ -96,8 +96,17 @@ export default function Contact({ onSubmit }) {
                   <i className="fas fa-phone text-neutral-900"></i>
                 </div>
                 <div>
-                  <div className="text-neutral-900 font-medium text-sm mb-1">Call Us 24/7</div>
-                  <a href="tel:+1-555-123-4567" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">+1 (555) 123-4567</a>
+                  <div className="text-neutral-900 font-medium text-sm mb-1">Call Us</div>
+                  <a href="tel:+919003617313" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">+91 90036 17313</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4 group cursor-pointer">
+                <div className="w-12 h-12 rounded-lg bg-neutral-900/5 border border-neutral-900/10 flex items-center justify-center flex-shrink-0 group-hover:bg-neutral-900/10 transition-all">
+                  <i className="fab fa-whatsapp text-emerald-600 text-lg"></i>
+                </div>
+                <div>
+                  <div className="text-neutral-900 font-medium text-sm mb-1">WhatsApp Chat</div>
+                  <a href="https://wa.me/919003617313" target="_blank" rel="noopener noreferrer" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">+91 90036 17313</a>
                 </div>
               </div>
               <div className="flex items-start gap-4 group cursor-pointer">
@@ -106,7 +115,7 @@ export default function Contact({ onSubmit }) {
                 </div>
                 <div>
                   <div className="text-neutral-900 font-medium text-sm mb-1">Email Us</div>
-                  <a href="mailto:consult@vnlawfirm.com" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">consult@vnlawfirm.com</a>
+                  <a href="mailto:Nagendrenlr80@gmail.com" className="text-neutral-600 hover:text-neutral-900 text-sm transition-colors">Nagendrenlr80@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-4 group cursor-pointer">
@@ -115,7 +124,7 @@ export default function Contact({ onSubmit }) {
                 </div>
                 <div>
                   <div className="text-neutral-900 font-medium text-sm mb-1">Visit Our Office</div>
-                  <div className="text-neutral-600 text-sm">1200 Legal Plaza, Suite 500<br />New York, NY 10022</div>
+                  <div className="text-neutral-600 text-sm">no24 East 2nd Street<br />KK Nagar, Madurai</div>
                 </div>
               </div>
             </div>
@@ -172,7 +181,7 @@ export default function Contact({ onSubmit }) {
                 <input type="checkbox" required id="consent" className="mt-1 accent-neutral-950 cursor-pointer" aria-label="Privacy consent" />
                 <label htmlFor="consent" className="text-neutral-500 text-xs leading-relaxed cursor-pointer">I agree to the privacy policy and understand that all information shared is protected by attorney-client privilege.</label>
               </div>
-              <button type="submit" className="btn-accent w-full justify-center !py-4 !text-base relative overflow-hidden" disabled={submitting || submitted} style={(submitting || submitted) ? { opacity: 0.7 } : {}}>
+              <button type="submit" className="btn-accent shine-effect w-full justify-center !py-4 !text-base relative overflow-hidden" disabled={submitting || submitted} style={(submitting || submitted) ? { opacity: 0.7 } : {}}>
                 {submitted ? (
                   <><i className="fas fa-check text-sm"></i> Submitted!</>
                 ) : submitting ? (

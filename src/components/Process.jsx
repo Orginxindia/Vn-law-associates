@@ -22,7 +22,7 @@ export default function Process() {
               Our proven four-step methodology ensures every case receives the meticulous attention and strategic thinking it deserves.
             </p>
             <div>
-              <img src="https://picsum.photos/seed/legalprocess/600/350.jpg?q=80" className="w-full h-[250px] object-cover rounded-2xl opacity-60" alt="Legal Process" loading="lazy" />
+              <img src="/images/office_setup.jpg" className="w-full h-[250px] object-cover rounded-2xl opacity-80 border border-neutral-200/50 shadow-md" alt="VN Law Firm Office Setup" loading="lazy" />
             </div>
           </div>
           <div className="space-y-10">

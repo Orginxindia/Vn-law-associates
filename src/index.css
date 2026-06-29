@@ -652,3 +652,51 @@ textarea:focus-visible {
 html {
     scroll-padding-top: 80px;
 }
+
+/* ── ULTRA SMOOTH HOVER EFFECTS ── */
+.btn-primary,
+.btn-secondary,
+.btn-accent,
+.service-card,
+.testimonial-card,
+.faq-item,
+.team-card {
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Shiny glare hover effect */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+.shine-effect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    transition: left 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+}
+.shine-effect:hover::after {
+    left: 140%;
+    opacity: 1;
+}
+
+/* Scale and lift animation for links and list items */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-2px);
+}

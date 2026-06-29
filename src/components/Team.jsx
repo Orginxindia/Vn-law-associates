@@ -1,52 +1,315 @@
+import { useRef, useEffect, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
 const TEAM = [
-  { img: '/nagendran.jpg', name: 'Advocate V. Nagendran', role: 'CEO & Founder', bio: 'M.A., B.L., D.M.D.L. Former Additional Government Pleader, Madurai District. CEO & Founder of VN Law Firm.' },
-  { img: '/images/m_ramanathan.jpg', name: 'Senior Adv. M. Ramanathan', role: 'Senior Counsel (Civil Side)', bio: 'Senior Advocate specializing in Civil Litigation, Property disputes, Contracts, and Land Advocacy.' },
-  { img: '/images/d_santhosam.jpg', name: 'Senior Adv. D. Santhosam', role: 'Senior Counsel (Criminal Side)', bio: 'Senior Advocate specializing in Criminal Defense, Criminal Trials, and Appellate Court Advocacy.' },
-  { img: '/images/p_chandrasekaran.jpeg', name: 'Adv. P. Chandrasekaran', role: 'Retired Additional Public Prosecutor', bio: 'B.A., B.L. Experienced legal counsel with expertise in Public Law and Prosecutorial Strategy.' },
-  { img: '/images/m_tamilmuthalvan.jpeg', name: 'Adv. M. Tamilmuthalvan', role: 'Associate Counsel', bio: 'B.A., LL.B. Focuses on Corporate Law, Civil Litigations, and Constitutional matters.' },
-  { img: '/images/a_vijayakumar.jpeg', name: 'Adv. A. Vijayakumar', role: 'Associate Counsel', bio: 'B.A., B.L. Specialist in Family Law, Civil Disputes, and Commercial contracts.' },
-  { img: '/images/k_thiraviam.jpeg', name: 'Adv. K. Thiraviam', role: 'Associate Counsel', bio: 'B.Sc., LL.B. Specializes in Real Estate Law, Banking Compliance, and Land disputes.' },
-  { img: '/images/p_palani.jpg', name: 'Adv. P. Palani', role: 'Associate Counsel', bio: 'B.A., B.L. Focuses on Labor Court matters, Consumer Court Forums, and General Civil Advocacy.' }
+  { 
+    img: '/nagendran.jpg', 
+    name: 'Advocate V. Nagendran', 
+    role: 'CEO & Founder', 
+    credentials: 'M.A., B.L., D.M.D.L.',
+    specialties: ['Constitutional Law', 'Trial Court Strategy', 'Administrative Law'],
+    bio: 'Former Additional Government Pleader, Madurai District. CEO & Founder of VN Law Firm.' 
+  },
+  { 
+    img: '/images/m_ramanathan.jpg', 
+    name: 'Senior Adv. M. Ramanathan', 
+    role: 'Senior Counsel (Civil Side)', 
+    credentials: 'Senior Advocate',
+    specialties: ['Civil Litigation', 'Property Disputes', 'Contracts & Advocacy'],
+    bio: 'Senior Advocate specializing in Civil Litigation, Property disputes, Contracts, and Land Advocacy.' 
+  },
+  { 
+    img: '/images/d_santhosam.jpg', 
+    name: 'Senior Adv. D. Santhosam', 
+    role: 'Senior Counsel (Criminal Side)', 
+    credentials: 'Senior Advocate',
+    specialties: ['Criminal Defense', 'Criminal Trials', 'Appellate Court'],
+    bio: 'Senior Advocate specializing in Criminal Defense, Criminal Trials, and Appellate Court Advocacy.' 
+  },
+  { 
+    img: '/images/p_chandrasekaran.jpeg', 
+    name: 'Adv. P. Chandrasekaran', 
+    role: 'Retired Additional Public Prosecutor', 
+    credentials: 'B.A., B.L.',
+    specialties: ['Public Law', 'Prosecutorial Strategy', 'Criminal Appeals'],
+    bio: 'Experienced legal counsel with expertise in Public Law and Prosecutorial Strategy.' 
+  },
+  { 
+    img: '/images/m_tamilmuthalvan.jpeg', 
+    name: 'Adv. M. Tamilmuthalvan', 
+    role: 'Associate Counsel', 
+    credentials: 'B.A., LL.B.',
+    specialties: ['Corporate Law', 'Civil Litigations', 'Constitutional Matters'],
+    bio: 'Focuses on Corporate Law, Civil Litigations, and Constitutional matters.' 
+  },
+  { 
+    img: '/images/a_vijayakumar.jpeg', 
+    name: 'Adv. A. Vijayakumar', 
+    role: 'Associate Counsel', 
+    credentials: 'B.A., B.L.',
+    specialties: ['Family Law', 'Civil Disputes', 'Commercial Contracts'],
+    bio: 'Specialist in Family Law, Civil Disputes, and Commercial contracts.' 
+  },
+  { 
+    img: '/images/k_thiraviam.jpeg', 
+    name: 'Adv. K. Thiraviam', 
+    role: 'Associate Counsel', 
+    credentials: 'B.Sc., LL.B.',
+    specialties: ['Real Estate Law', 'Banking Compliance', 'Land Disputes'],
+    bio: 'Specializes in Real Estate Law, Banking Compliance, and Land disputes.' 
+  },
+  { 
+    img: '/images/p_palani.jpg', 
+    name: 'Adv. P. Palani', 
+    role: 'Associate Counsel', 
+    credentials: 'B.A., B.L.',
+    specialties: ['Labor Court', 'Consumer Forums', 'General Civil Advocacy'],
+    bio: 'Focuses on Labor Court matters, Consumer Court Forums, and General Civil Advocacy.' 
+  }
 ];
 
 export default function Team() {
+  const targetRef = useRef(null);
+  const scrollRef = useRef(null);
+  const [translateX, setTranslateX] = useState(0);
+
+  useEffect(() => {
+    const calculateTranslate = () => {
+      if (scrollRef.current) {
+        const scrollWidth = scrollRef.current.scrollWidth;
+        const clientWidth = window.innerWidth;
+        setTranslateX(Math.max(0, scrollWidth - clientWidth + 96)); // Extra padding at the end
+      }
+    };
+
+    calculateTranslate();
+    
+    window.addEventListener('resize', calculateTranslate);
+    window.addEventListener('load', calculateTranslate);
+    
+    const resizeObserver = new ResizeObserver(() => calculateTranslate());
+    if (scrollRef.current) {
+      resizeObserver.observe(scrollRef.current);
+    }
+
+    return () => {
+      window.removeEventListener('resize', calculateTranslate);
+      window.removeEventListener('load', calculateTranslate);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [0, -translateX]);
+
   return (
-    <section id="team" className="py-24 md:py-32 relative">
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-neutral-900/3 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="section-label mb-6 mx-auto">
-            <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 inline-block"></span>
+    <>
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+
+      {/* Desktop view (pinned horizontal scroll) - Hidden on mobile */}
+      <section 
+        ref={targetRef} 
+        id="team" 
+        className="hidden md:block relative h-[300vh] bg-neutral-950 text-white"
+      >
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+          {/* Subtle Ambient Background Light */}
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/[0.03] rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-emerald-500/[0.02] rounded-full blur-[160px] pointer-events-none" />
+
+          {/* Scrolling Horizontal Track */}
+          <motion.div 
+            ref={scrollRef} 
+            style={{ x }} 
+            className="flex items-center gap-8 px-[10vw] w-max select-none"
+          >
+            {/* Slide 1: Premium Title Slide */}
+            <div className="w-[450px] lg:w-[500px] flex-shrink-0 flex flex-col justify-center pr-12">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-6 w-max">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                Our Attorneys
+              </div>
+              <h2 className="font-bricolage font-bold text-4xl lg:text-5xl tracking-tight leading-[1.15] mb-6 text-white">
+                Meet the <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200">Legal Minds</span>
+              </h2>
+              <p className="text-neutral-400 text-base lg:text-lg leading-relaxed mb-8">
+                Our attorneys bring decades of combined experience from top law schools, federal clerkships, and leading global practices.
+              </p>
+              
+              <div className="flex items-center gap-3 text-neutral-500 text-xs mt-2">
+                <span>Scroll down to explore</span>
+                <div className="w-16 h-[1px] bg-neutral-800 relative overflow-hidden">
+                  <motion.div 
+                    animate={{ x: ['-100%', '100%'] }} 
+                    transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }} 
+                    className="absolute inset-0 bg-amber-400" 
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Slides 2 to 9: Attorney Cards */}
+            {TEAM.map((member, index) => {
+              const formattedIndex = String(index + 1).padStart(2, '0');
+              return (
+                <div 
+                  key={member.name}
+                  className="w-[340px] lg:w-[360px] h-[500px] lg:h-[530px] flex-shrink-0 relative rounded-2xl border border-neutral-800/80 bg-neutral-900/20 backdrop-blur-sm overflow-hidden group hover:border-amber-400/40 transition-all duration-500 shadow-xl"
+                >
+                  {/* Gray-to-Color Image Wrapper */}
+                  <div className="h-[65%] w-full overflow-hidden relative">
+                    <img 
+                      src={member.img} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover object-top filter grayscale contrast-[1.05] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" 
+                      loading="lazy" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent" />
+                  </div>
+
+                  {/* Elegant Index Number overlay */}
+                  <span className="absolute top-4 right-6 text-7xl font-bricolage font-black text-neutral-800/25 group-hover:text-amber-500/10 transition-colors duration-500 select-none pointer-events-none">
+                    {formattedIndex}
+                  </span>
+
+                  {/* Details Overlay */}
+                  <div className="p-5 h-[35%] flex flex-col justify-between relative bg-neutral-900">
+                    <div>
+                      <h4 className="font-bricolage font-bold text-white text-base lg:text-lg leading-tight mb-0.5 group-hover:text-amber-300 transition-colors duration-300">
+                        {member.name}
+                      </h4>
+                      <p className="text-amber-400 text-[10px] lg:text-xs font-semibold uppercase tracking-wider mb-1.5">
+                        {member.role}
+                      </p>
+                      
+                      {/* Specialties / Tags */}
+                      <div className="flex flex-wrap gap-1 mb-1.5">
+                        {member.specialties.map(spec => (
+                          <span key={spec} className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-neutral-950 text-neutral-450 border border-neutral-800/80">
+                            {spec}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="border-t border-neutral-800/60 pt-2">
+                      <p className="text-neutral-400 text-[10px] lg:text-[11px] leading-relaxed line-clamp-2">
+                        <span className="text-neutral-300 font-semibold block mb-0.5">{member.credentials}</span>
+                        {member.bio}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Slide 10: Outro CTA Slide */}
+            <div className="w-[380px] lg:w-[420px] h-[500px] lg:h-[530px] flex-shrink-0 flex flex-col justify-center items-center text-center p-8 rounded-2xl border border-dashed border-neutral-800 bg-neutral-950">
+              <div className="w-16 h-16 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-6">
+                <i className="fas fa-balance-scale text-amber-400 text-2xl" />
+              </div>
+              <h3 className="font-bricolage font-bold text-2xl lg:text-3xl text-white mb-4 leading-tight">
+                Our Entire Roster <br/>
+                At Your Disposal
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-8 max-w-xs">
+                With a robust network of 500+ specialized advocates and legal advisors, we cover every facet of the law.
+              </p>
+              
+              <a 
+                href="#contact" 
+                className="group inline-flex items-center gap-3 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-neutral-950 font-bold text-sm rounded-xl transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-amber-400/10"
+              >
+                View All 500+ Attorneys
+                <i className="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1 text-neutral-950" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mobile view (Smooth swipeable list with native snap scroll) - Hidden on desktop */}
+      <section id="team-mobile" className="block md:hidden py-20 bg-neutral-950 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-amber-500/3 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="px-6 mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-amber-400 text-[10px] font-semibold tracking-wider uppercase mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
             Our Attorneys
           </div>
-          <h2 className="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
-            Meet the <span className="text-neutral-900">Legal Minds</span>
+          <h2 className="font-bricolage font-bold text-3xl tracking-tight mb-4">
+            Meet the <span className="text-amber-400">Legal Minds</span>
           </h2>
-          <p className="text-neutral-600 text-base md:text-lg leading-relaxed">
-            Our attorneys bring decades of combined experience from top law schools, federal clerkships, and leading global firms.
+          <p className="text-neutral-400 text-sm leading-relaxed">
+            Our attorneys bring decades of combined experience from top law schools and leading global practices. Swipe to browse.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Swipe container */}
+        <div className="flex gap-5 overflow-x-auto no-scrollbar snap-x snap-mandatory px-6 pb-6">
           {TEAM.map((member) => (
-            <div key={member.name} className="team-card">
-              <img src={member.img} className="w-full h-[360px] object-cover" alt={member.name} loading="lazy" />
-              <div className="overlay">
-                <h4 className="font-bricolage font-semibold text-neutral-900 text-lg">{member.name}</h4>
-                <p className="text-neutral-900 text-sm font-medium mb-2">{member.role}</p>
-                <p className="text-neutral-500 text-xs leading-relaxed">{member.bio}</p>
+            <div 
+              key={`${member.name}-mobile`}
+              className="w-[290px] flex-shrink-0 snap-center relative rounded-xl border border-neutral-800 bg-neutral-900/60 overflow-hidden flex flex-col h-[460px]"
+            >
+              <div className="h-[65%] relative overflow-hidden">
+                <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top filter contrast-[1.05]" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent" />
+              </div>
+              <div className="p-5 flex flex-col justify-between flex-grow bg-neutral-950">
+                <div>
+                  <h4 className="font-bricolage font-bold text-white text-base leading-tight mb-1">
+                    {member.name}
+                  </h4>
+                  <p className="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                    {member.role}
+                  </p>
+                  <p className="text-neutral-300 text-[11px] font-medium block mb-1">
+                    {member.credentials}
+                  </p>
+                </div>
+                <div className="border-t border-neutral-855 pt-3">
+                  <p className="text-neutral-400 text-xs leading-relaxed line-clamp-3">
+                    {member.bio}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
-        </div>
 
-        <div className="text-center mt-12">
-          <a href="#contact" className="btn-secondary">
-            View All 45+ Attorneys
-            <i className="fas fa-arrow-right text-sm text-neutral-900"></i>
-          </a>
+          {/* End CTA Panel in mobile swipe */}
+          <div className="w-[280px] flex-shrink-0 snap-center rounded-xl border border-dashed border-neutral-850 bg-neutral-950 flex flex-col justify-center items-center text-center p-6 h-[460px]">
+            <div className="w-12 h-12 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center mb-4">
+              <i className="fas fa-balance-scale text-amber-500 text-xl" />
+            </div>
+            <h3 className="font-bricolage font-bold text-xl text-white mb-3 leading-tight">
+              Our Roster
+            </h3>
+            <p className="text-neutral-400 text-xs leading-relaxed mb-6 px-4">
+              With 500+ specialized advocates, we cover every facet of the law.
+            </p>
+            <a 
+              href="#contact" 
+              className="inline-flex items-center gap-2 px-5 py-3 bg-amber-500 text-neutral-950 font-bold text-xs rounded-lg transition-all duration-300"
+            >
+              View All 500+ Attorneys
+              <i className="fas fa-arrow-right text-[10px] text-neutral-950" />
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -24,8 +24,8 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="section-label mb-6 mx-auto bg-white/5 border border-white/10 text-neutral-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-emerald-400 text-xs font-bold tracking-widest uppercase mb-6 mx-auto shadow-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Our Practice Areas
           </div>
           <h2 className="font-bricolage font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] mb-6">
@@ -38,7 +38,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICES.map((svc) => (
-            <div key={svc.title} className="group relative bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-white/15 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl">
+            <div key={svc.title} className="group relative bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-white/15 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl shine-effect">
               <div className="p-8">
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-[52px] h-[52px] rounded-xl flex items-center justify-center bg-white/5 border border-white/10 text-emerald-400 text-xl transition-all duration-300 group-hover:scale-105 group-hover:bg-white/10">

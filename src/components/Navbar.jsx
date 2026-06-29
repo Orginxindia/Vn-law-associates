@@ -71,7 +71,7 @@ export default function Navbar() {
             <a href="#faq" className="nav-link" onClick={(e) => handleNavClick(e, '#faq')}>FAQ</a>
           </div>
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+1-555-123-4567" className="btn-secondary text-sm !py-2.5 !px-5">
+            <a href="tel:+919003617313" className="btn-secondary text-sm !py-2.5 !px-5">
               <i className="fas fa-phone text-xs"></i> Call Us
             </a>
             <a href="#contact" className="btn-primary text-sm !py-2.5 !px-5" onClick={(e) => handleNavClick(e, '#contact')}>

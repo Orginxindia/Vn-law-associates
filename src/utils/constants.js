@@ -13,8 +13,8 @@ export const HERO_CONTENT = {
 };
 
 export const STATS_CONTENT = [
-  { label: 'Years of Excellence', value: 25, color: 'text-white' },
-  { label: 'Cases Won', value: 2500, color: 'text-neutral-900', suffix: '+' },
-  { label: 'Expert Attorneys', value: 45, color: 'text-white' },
+  { label: 'Years of Experience', value: 45, color: 'text-white', suffix: '+' },
+  { label: 'Cases Handled', value: 10000, color: 'text-neutral-900', suffix: '+' },
+  { label: 'Expert Attorneys', value: 500, color: 'text-white', suffix: '+' },
   { label: 'Recovered for Clients', value: 2, color: 'text-white', prefix: '$', suffix: 'B+' },
 ];

@@ -15,7 +15,7 @@ export default function About() {
               Founded over two decades ago, VN Law Firm has grown from a boutique practice into one of the most respected full-service law firms in the nation. Our unwavering commitment to justice, combined with innovative legal strategies, has earned us recognition from top legal directories worldwide.
             </p>
             <p className="text-neutral-600 text-base leading-relaxed mb-8">
-              We believe that every client deserves world-class representation, regardless of the complexity of their case. Our team of 45+ attorneys brings deep expertise across all major practice areas, ensuring comprehensive legal solutions under one roof.
+              We believe that every client deserves world-class representation, regardless of the complexity of their case. Our team of 500+ attorneys brings deep expertise across all major practice areas, ensuring comprehensive legal solutions under one roof.
             </p>
             <div className="grid grid-cols-2 gap-6">
               {[
@@ -40,13 +40,13 @@ export default function About() {
             <div className="relative">
               <img src="/about_nagendran.jpg" className="w-full h-[520px] object-cover rounded-2xl shadow-2xl border border-black/5" alt="Advocate V. Nagendran Office" loading="lazy" />
               <div className="absolute -bottom-6 -left-6 glass-strong rounded-2xl p-5 max-w-[220px] backdrop-blur-xl">
-                <div className="text-neutral-900 font-bricolage font-bold text-3xl mb-1">25+</div>
+                <div className="text-neutral-900 font-bricolage font-bold text-3xl mb-1">45+</div>
                 <div className="text-neutral-600 text-sm">Years fighting for our clients' rights</div>
               </div>
               <div className="absolute -top-4 -right-4 glass-strong rounded-2xl p-4 backdrop-blur-xl">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse"></div>
-                  <span className="text-neutral-700 text-xs font-medium">Available 24/7</span>
+                  <span className="text-neutral-700 text-xs font-medium">Always Available</span>
                 </div>
               </div>
             </div>
